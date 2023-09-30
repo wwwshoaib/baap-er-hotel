@@ -23,4 +23,6 @@ document.getElementById('btn-deposit').addEventListener('click', function(){
     // step-7: clear the deposit input
     depositField.value = '';
     
-})
+}) 
+
+
