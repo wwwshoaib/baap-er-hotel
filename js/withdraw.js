@@ -8,6 +8,11 @@ document.getElementById('btn-withdraw').addEventListener('click', function() {
     const newWithdrawAmountString = withdrawField.value;
     const newWithdrawAmount = parseFloat(newWithdrawAmountString);
 
+    if(isNaN(newWithdrawAmount)) {
+        alert('provide number');
+        return;
+    }
+
     // previous withdraw
 
     const previousWithdrawTotalElement = document.getElementById('withdraw-total');
@@ -24,14 +29,24 @@ document.getElementById('btn-withdraw').addEventListener('click', function() {
     const balanceTotalElement = document.getElementById('balance-total');
     const balanceTotalElementString = balanceTotalElement.innerText;
     const balanceTotal = parseFloat(balanceTotalElementString);
+
+    withdrawField.value = '';
+
+    if ( totalWithdraw > balanceTotal) {
+        alert('tor baaper  balance e eto taka nai. ')
+        return;
+    }
+
     // now remaining balance 
 
     const remainingBalance = balanceTotal - totalWithdraw;
     balanceTotalElement.innerText = remainingBalance;
 
+    
 
 
-    withdrawField.value = '';
+
+  
    
     
 
